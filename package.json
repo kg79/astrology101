@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/kg79/astrology101#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "mongodb": "^3.2.3",
     "serve-static": "^1.13.2"
   }
 }
