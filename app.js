@@ -1,10 +1,18 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+const port = process.env.PORT || 8082;
 
-const port = process.env.PORT || 8081;
+const serveStatic = require('serve-static');
+app.use(serveStatic(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.end('fuck yeah')
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
+
+
+
+app.get('/partial', (req, res) => {
+    res.render('partial');
 })
 
 app.listen(port)
