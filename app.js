@@ -1,6 +1,10 @@
-const http = require('http');
-const port = process.env.PORT || 8080;
+const express = require('express');
+const app = express();
 
-http.Server((req, res) => {
-    res.end('this is a test')
-}).listen(port)
+const port = process.env.PORT || 8081;
+
+app.get('/', (req, res) => {
+    res.end('fuck yeah')
+})
+
+app.listen(port)
