@@ -15,6 +15,21 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = process.env.theMongo || process.env.MONGODB_URI;
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination:'./public/uploads',
+    filename:function(req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() +
+        path.extname(file.originalname))
+    }
+});
+
+const upload = multer({
+    storage:storage
+}).single('myImage');
+
+
 
 const serveStatic = require('serve-static');
 app.use(serveStatic(path.join(__dirname, 'public')));
@@ -126,5 +141,43 @@ app.get('/messagesFrom', (req, res) => {
     });
 });
 
+app.post('/reply', (req, res) => {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("nouns");
+        dbo.collection("messages").insertOne({
+            sender:req.cookies.accountName,
+            receiver:req.cookies.theSender,
+            message:req.body.message
+        });
+    });
+    res.redirect('/messagesFrom');
+});
+
+app.post('/addMetaData', (req, res) => {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("nouns");
+        dbo.collection('people').updateOne({'username':`${req.cookies.accountName}`}, {$set: {'meta':req.body.meta}}, (err, r) => {
+            res.render('editProfile');
+        });
+    });
+});
+
+app.post('/upload', (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+                if (err) throw err;
+                var dbo = db.db("nouns");
+                dbo.collection('people').updateOne({'username':`${req.cookies.accountName}`}, {$set: {'picture':`${req.file.filename}`}}, (err, r) => {
+                    res.render('editProfile');
+                })
+            });
+        }
+    })
+})
 
 app.listen(port)
