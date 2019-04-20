@@ -119,105 +119,105 @@
         </section>
     </body>
     <script>
-//         const compatibilities = document.getElementById('compatibilities');
-//         const tropicalCompatibilities = document.getElementById('tropicalCompatibilities');
-//         const chineseCompatibilities = document.getElementById('chineseCompatibilities');
+        const compatibilities = document.getElementById('compatibilities');
+        const tropicalCompatibilities = document.getElementById('tropicalCompatibilities');
+        const chineseCompatibilities = document.getElementById('chineseCompatibilities');
 
-// // Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces
-//     let tropicalCompats = [];
-//     (() => {
+// Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces
+    let tropicalCompats = [];
+    (() => {
 
-//         let split = document.cookie.split('; ');
-//         for (let i = 0; i < split.length; i++) {
-//             switch (split[i].split('=')[0]) {
-//                 case 'accountName':
+        let split = document.cookie.split('; ');
+        for (let i = 0; i < split.length; i++) {
+            switch (split[i].split('=')[0]) {
+                case 'accountName':
 
-//                 break;
-//                 case 'userTropical':
-//                     switch (split[i].split('=')[1]) {
-//                         case 'aries':
-//                         tropicalCompats = ['Gemini', 'Leo', 'Sagittarius', 'Aquarius'];
-//                         break;
-//                         case 'taurus':
-//                         tropicalCompats = ['Cancer', 'Virgo', 'Capricorn', 'Pisces'];
-//                         break;
-//                         case 'gemini':
-//                         tropicalCompats = ['Leo', 'Libra', 'Aquarius', 'Aries'];
-//                         break;
-//                         case 'cancer':
-//                         tropicalCompats = ['Virgo', 'Scorpio', 'Pisces', 'Taurus'];
-//                         break;
-//                         case 'leo':
-//                         tropicalCompats = ['Libra', 'Sagittarius', 'Aquarius', 'Gemini'];
-//                         break;
-//                         case 'virgo':
-//                         tropicalCompats = ['Scorpio', 'Capricorn', 'Pisces', 'Taurus'];
-//                         break;
-//                         case 'libra':
-//                         tropicalCompats = ['Sagittarius', 'Aquarius', 'Gemini', 'Leo'];
-//                         break;
-//                         case 'scorpio':
-//                         tropicalCompats = ['Capricorn', 'Pisces', 'Cancer', 'Virgo'];
-//                         break;
-//                         case 'sagittarius':
-//                         tropicalCompats = ['Aquarius', 'Aries', 'Leo', 'Libra'];
-//                         break;
-//                         case 'capricorn':
-//                         tropicalCompats = ['Pisces', 'Taurus', 'Virgo', 'Scorpio'];
-//                         break;
-//                         case 'aquarius':
-//                         tropicalCompats = ['Aries', 'Gemini', 'Libra', 'Sagittarius'];
-//                         break;
-//                         case 'pisces':
-//                         tropicalCompats = ['Taurus', 'Cancer', 'Virgo', 'Capricorn'];
-//                         break;
-//                     }
-//                 break;
-//                 case 'userChinese':
-//                     switch (split[i].split('=')[1]) {
-//                         case 'rat':
-//                             chineseCompats = ['Ox', 'Dragon', 'Monkey']
-//                         break;
-//                         case 'ox':
-//                             chineseCompats = ['Rat', 'Snake', "Rooster"]
-//                         break;
-//                         case 'tiger':
-//                             chineseCompats = ['Horse', 'Dog', 'Pig']
-//                         break;
-//                         case 'rabbit':
-//                             chineseCompats = ['Goat', 'Dog', 'Pig']
-//                         break;
-//                         case 'dragon':
-//                             chineseCompats = ['Rat', 'Monkey', 'Rooster']
-//                         break;
-//                         case 'snake':
-//                             chineseCompats = ['Ox', 'Monkey', 'Rooster']
-//                         break;
-//                         case 'horse':
-//                             chineseCompats = ['Tiger', 'Goat', 'Dog']
-//                         break;
-//                         case 'goat':
-//                             chineseCompats = ['Rabbit', 'Horse', 'Pig']
-//                         break;
-//                         case 'monkey':
-//                             chineseCompats = ['Rat', 'Dragon', 'Snake']
-//                         break;
-//                         case 'rooster':
-//                             chineseCompats = ['Ox', 'Dragon', 'Snake']
-//                         break;
-//                         case 'dog':
-//                             chineseCompats = ['Tiger', 'Rabbit', 'Horse']
-//                         break;
-//                         case 'pig':
-//                             chineseCompats = ['Tiger', 'Rabbit', 'Goat']
-//                         break;
-//                     }
-//                 break;
-//             }
-//         }
-//         tropicalCompatibilities.innerText = `Your tropical compatibilities are ${tropicalCompats.join(', ')}`
-//         chineseCompatibilities.innerText = `Your chinese compatibilities are ${chineseCompats.join(', ')}`
-//     })()
+                break;
+                case 'userTropical':
+                    switch (split[i].split('=')[1]) {
+                        case 'aries':
+                        tropicalCompats = ['Gemini', 'Leo', 'Sagittarius', 'Aquarius'];
+                        break;
+                        case 'taurus':
+                        tropicalCompats = ['Cancer', 'Virgo', 'Capricorn', 'Pisces'];
+                        break;
+                        case 'gemini':
+                        tropicalCompats = ['Leo', 'Libra', 'Aquarius', 'Aries'];
+                        break;
+                        case 'cancer':
+                        tropicalCompats = ['Virgo', 'Scorpio', 'Pisces', 'Taurus'];
+                        break;
+                        case 'leo':
+                        tropicalCompats = ['Libra', 'Sagittarius', 'Aquarius', 'Gemini'];
+                        break;
+                        case 'virgo':
+                        tropicalCompats = ['Scorpio', 'Capricorn', 'Pisces', 'Taurus'];
+                        break;
+                        case 'libra':
+                        tropicalCompats = ['Sagittarius', 'Aquarius', 'Gemini', 'Leo'];
+                        break;
+                        case 'scorpio':
+                        tropicalCompats = ['Capricorn', 'Pisces', 'Cancer', 'Virgo'];
+                        break;
+                        case 'sagittarius':
+                        tropicalCompats = ['Aquarius', 'Aries', 'Leo', 'Libra'];
+                        break;
+                        case 'capricorn':
+                        tropicalCompats = ['Pisces', 'Taurus', 'Virgo', 'Scorpio'];
+                        break;
+                        case 'aquarius':
+                        tropicalCompats = ['Aries', 'Gemini', 'Libra', 'Sagittarius'];
+                        break;
+                        case 'pisces':
+                        tropicalCompats = ['Taurus', 'Cancer', 'Virgo', 'Capricorn'];
+                        break;
+                    }
+                break;
+                case 'userChinese':
+                    switch (split[i].split('=')[1]) {
+                        case 'rat':
+                            chineseCompats = ['Ox', 'Dragon', 'Monkey']
+                        break;
+                        case 'ox':
+                            chineseCompats = ['Rat', 'Snake', "Rooster"]
+                        break;
+                        case 'tiger':
+                            chineseCompats = ['Horse', 'Dog', 'Pig']
+                        break;
+                        case 'rabbit':
+                            chineseCompats = ['Goat', 'Dog', 'Pig']
+                        break;
+                        case 'dragon':
+                            chineseCompats = ['Rat', 'Monkey', 'Rooster']
+                        break;
+                        case 'snake':
+                            chineseCompats = ['Ox', 'Monkey', 'Rooster']
+                        break;
+                        case 'horse':
+                            chineseCompats = ['Tiger', 'Goat', 'Dog']
+                        break;
+                        case 'goat':
+                            chineseCompats = ['Rabbit', 'Horse', 'Pig']
+                        break;
+                        case 'monkey':
+                            chineseCompats = ['Rat', 'Dragon', 'Snake']
+                        break;
+                        case 'rooster':
+                            chineseCompats = ['Ox', 'Dragon', 'Snake']
+                        break;
+                        case 'dog':
+                            chineseCompats = ['Tiger', 'Rabbit', 'Horse']
+                        break;
+                        case 'pig':
+                            chineseCompats = ['Tiger', 'Rabbit', 'Goat']
+                        break;
+                    }
+                break;
+            }
+        }
+        tropicalCompatibilities.innerText = `Your tropical compatibilities are ${tropicalCompats.join(', ')}`
+        chineseCompatibilities.innerText = `Your chinese compatibilities are ${chineseCompats.join(', ')}`
+    })()
     
     </script>
 </html>
