@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = process.env.PORT || 8083;
+const port = process.env.PORT || 8085;
 const bodyParser = require('body-parser');
 
 const bcrypt = require('bcrypt');
@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const MongoClient = require('mongodb').MongoClient;
 
 const url = process.env.theMongo || process.env.MONGODB_URI;
+
 
 const serveStatic = require('serve-static');
 app.use(serveStatic(path.join(__dirname, 'public')));
@@ -58,15 +59,15 @@ app.post('/logIn', (req, res) => {
         });
     });
 });
-// app.post('/logIn', (req, res) => {
-//     MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
-//         if (err) throw err;
-//         var dbo = db.db("nouns");
-//         dbo.collection("people").find({"username":`${req.body.username}`}).toArray((err, data) => {
-//                 res.render('astroLanding', {data:data});
-//         });
-//     });
-// });
+
+app.get('/home', (req, res) => {
+    res.render('home');
+});
+
+app.get('/info', (req, res) => {
+    res.render('astrologyInfo');
+});
+
 
 
 
